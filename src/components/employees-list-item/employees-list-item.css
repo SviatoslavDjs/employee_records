@@ -33,10 +33,14 @@
 
 .list-group-item .btn-cookie {
     color: #e09f3e;
+    display: flex;
+    justify-content: center;
 }
 
 .list-group-item .btn-trash {
     color: #e5383b;
+    display: flex;
+    justify-content: center;
 }
 
 .list-group-item .fa-star {

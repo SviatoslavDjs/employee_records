@@ -3,19 +3,24 @@ import "./employees-list.css"
 
 
 
-const EmployeesList = ({data}) => {
+const EmployeesList = ({ data, onDelete, onToggleProp, onSalaryChange }) => {
 
-const elements = data.map(item => {
-    const {id, ...itemProps} = item;
+    const elements = data.map(item => {
+        const { id, ...itemProps } = item;
+        return (
+            <EployedListItem
+                onDelete={() => onDelete(id)}
+                onToggleProp={(e) => onToggleProp(id, e.currentTarget.getAttribute('data-toggle'))}
+                onSalaryChange={onSalaryChange}
+                key={id}
+                {...itemProps} />
+        )
+    })
+
     return (
-        <EployedListItem key={id} {...itemProps} />
+        <ul className="app-list list-group">
+            {elements}
+        </ul>
     )
-})
-
-return (
-    <ul className="app-list list-group">
-      {elements}
-    </ul>
-)
 }
 export default EmployeesList;
